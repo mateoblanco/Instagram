@@ -54,7 +54,6 @@ Angular CLI 1.6.7
 
 5) Recomendamos utilizar el Usuario 1 y el Usuario 2 en diferentes pestañas para ver como se actualiza el feed y las historias
 
-6) La aplicación ya está lista para usarse
 
 Por defecto las historias se borran a los 15 segundos de haberlas agregado.
 Recomendamos que la base de datos está vacía para que no haya inconvenientes.

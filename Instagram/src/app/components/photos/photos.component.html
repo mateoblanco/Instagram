@@ -1,0 +1,32 @@
+<div class="wrapper photos-list">
+
+  <div class="timeline">
+    <p *ngIf="fotos.length == 0" class="no-image">No tienes imagenes disponibles</p>
+
+
+    <ul><li *ngFor="let f of fotos">
+        <div class="image" [ngStyle]="{'background-image': 'url(' + f.foto + ')'}" ></div>
+        <div class="description">
+          <p class=""><strong class="user">{{f.usuario}}</strong>{{f.descripcion}}</p>
+          <p class="date">{{f.fecha}}</p>
+        </div>
+      </li></ul>
+
+
+  </div>
+
+</div>
+
+<div class="tabs">
+  <ul>
+    <li>
+      <a [routerLink]="['/timeline',usuario]">Timeline</a>
+    </li>
+    <li>
+      <a [routerLink]="['/upload',usuario]">Cargar Foto</a>
+    </li>
+    <li class="active">
+      <a [routerLink]="['/photos',usuario]">Fotos</a>
+    </li>
+  </ul>
+</div>

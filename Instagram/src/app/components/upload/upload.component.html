@@ -1,0 +1,27 @@
+
+<div class="wrapper upload" [ngClass]="imagen ? 'cargado' : 'no-cargado'">
+  
+  <div class="input-image" [ngStyle]="{'background-image': 'url(' + base64 + ')'}" >
+    <span>+</span>
+    <input type="file" id="photo" name='image' class="image-input" (change)="onFileSelected($event)" />
+  </div>
+  
+<textarea name="descripcion" [(ngModel)]="descripcion" rows="4" cols="40" placeholder="Ingrese su descripcion para la foto..." class="input"></textarea>
+
+<button (click)="uploadPhoto()" type="button" name="button" class="button">Enviar</button>
+
+</div>
+
+<div class="tabs">
+  <ul>
+    <li>
+      <a [routerLink]="['/timeline',usuario]">Timeline</a>
+    </li>
+    <li class="active">
+      <a [routerLink]="['/upload',usuario]">Cargar Foto</a>
+    </li>
+    <li>
+      <a [routerLink]="['/photos',usuario]">Fotos</a>
+    </li>
+  </ul>
+</div>

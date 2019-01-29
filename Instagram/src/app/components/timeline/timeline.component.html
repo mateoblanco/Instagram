@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <p class="actual-user">Bienvenido, <strong>{{usuario}}</strong></p>
+
+  <div class="stories" [ngClass]="imagenHistoria ? 'cargado' : 'no-cargado'">
+
+  <ul class="stories-list">
+
+    <li class="upload-storie">
+        <input type="file" id="photo" name='image' (change)="onFileSelected($event)" class="image-input">
+      <div class="image"></div>
+        <p class="">Tu historia</p>
+    </li>
+
+    <li *ngFor="let h of historias">
+      <div class="image" [ngStyle]="{'background-image': 'url(' + h.foto + ')'}" ></div>
+        <p class="">{{h.usuario}}</p>
+    </li>
+
+  </ul>
+
+
+  <button (click)="uploadHistory()" type="button" name="button" class="button">Enviar</button>
+
+
+</div>
+
+
+  <div class="timeline">
+    <p *ngIf="contenido.length == 0" class="no-image">No tienes imagenes disponibles</p>
+    <ul>
+      <li *ngFor="let c of contenido">
+        <div class="image" [ngStyle]="{'background-image': 'url(' + c.foto + ')'}" ></div>
+        <div class="description">
+          <p class=""><strong class="user">{{c.usuario}}</strong>{{c.descripcion}}</p>
+          <p class="date">{{c.fecha}}</p>
+
+        </div>
+
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+<div class="tabs">
+  <ul>
+    <li class="active">
+      <a [routerLink]="['/timeline',usuario]">Timeline</a>
+    </li>
+    <li>
+      <a [routerLink]="['/upload',usuario]">Cargar Foto</a>
+    </li>
+    <li>
+      <a [routerLink]="['/photos',usuario]">Fotos</a>
+    </li>
+  </ul>
+</div>
